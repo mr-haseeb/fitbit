@@ -6,22 +6,16 @@ from rest_framework.response import Response
 
 
 
-class HomePageView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'dashborad/base.html')
-
-
-
 class MainPageView(View):
     def get(self,request,*args,**kwargs):
         return render(request,'dashborad/main.html')
 
 
-class ChartPageView(View):
+class ChartsPageView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'dashborad/chart.html')
+        return render(request, 'dashborad/charts.html')
 
-class ChartData(APIView):
+class ChartsData(APIView):
     authentication_classes = []
     permission_classes = []
 
