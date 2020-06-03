@@ -10,6 +10,13 @@ class HomePageView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'dashborad/base.html')
 
+
+
+class MainPageView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,'dashborad/main.html')
+
+
 class ChartPageView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'dashborad/chart.html')
