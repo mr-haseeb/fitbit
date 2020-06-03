@@ -1,8 +1,10 @@
 from django.urls import path
-from . import views
+from .views import HomePageView, ChartData,ChartPageView
+
 
 urlpatterns = [
-    path('', views.home, name='dashborad-home'),
-    path('charts/',views.charts,name='dashborad-charts')
 
+    path('', HomePageView.as_view(),name='dashborad-home'),
+    path('chart/',ChartPageView.as_view(),name='dashborad-chart'),
+    path('api/chart/data/', ChartData.as_view(),name='dashborad-chart-api')
 ]
