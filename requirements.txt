@@ -1,0 +1,6 @@
+bokeh==2.0.2
+Django==2.2
+djangorestframework==3.11.0
+numpy==1.18.4
+gunicorn
+django-heroku
