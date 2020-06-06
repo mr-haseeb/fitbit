@@ -27,7 +27,7 @@ SECRET_KEY = 'b+wni+3rex40v)r+ew5^2y^1r0_#argbge1!=k2kp5f2g=13c2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fitbitt.herokuapp.com']
 
 
 # Application definition
@@ -77,6 +77,8 @@ WSGI_APPLICATION = 'fitbit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# SQL Lite Default
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -84,6 +86,11 @@ WSGI_APPLICATION = 'fitbit.wsgi.application'
 #     }
 # }
 
+
+
+
+
+# Local Postgres
 
 DATABASES = {
     'default': {

@@ -26,3 +26,4 @@ class ChartsData(APIView):
         }   
 
         return Response(data)
+

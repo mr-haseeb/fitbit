@@ -4,3 +4,4 @@ djangorestframework==3.11.0
 numpy==1.18.4
 gunicorn
 django-heroku
+djongo
