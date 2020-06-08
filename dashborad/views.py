@@ -13,7 +13,7 @@ class MainPageView(View):
 
 class ChartsPageView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'dashborad/charts.html')
+        return render(request, 'dashborad/charts2.html')
 
 class ChartsData(APIView):
     authentication_classes = []

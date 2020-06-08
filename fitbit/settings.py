@@ -104,8 +104,19 @@ DATABASES = {
     }
 }
 
+# Mlab
 
-
+# DATABASES = {{
+#     'default': {
+#         'NAME': 'fitbitt',
+#         'AUTH_SOURCE': 'django-linecms-demo',
+#         'USER': '',
+#         'PASSWORD': '<password>',
+#         'HOST': '<code>.mlab.com',
+#         'PORT': <port>,
+#         'ENGINE': 'djongo'
+#     }
+# }}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
