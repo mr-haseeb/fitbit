@@ -6,30 +6,63 @@ from dashborad.models import Health
 from dashborad.api.serializer import HealthSerializer
 
 
+
 @api_view(['GET'])
-def api_detail_health_view(request,slug):
+def apiOverview(request):
+    api_urls={
+        'List':'/health-list',
+        'Detail View':'/health-detail/<str:pk>/',
+        'Create':'/health-create',
+        'Update':'/health-update/<str:pk>/',
+        'Delete':'/health-delete/<str:pk>/'
+        }
+
+    return Response(api_urls)
+
+
+
+@api_view(['GET'])
+def healthList(request):
     try:
-        health=Health.objects.get(slug=slug)
+        # health=Health.objects.get(slug=slug)
+         health=Health.objects.all()   
     
     except Health.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method=="GET":
-        serializer=HealthSerializer(health)
+        serializer=HealthSerializer(health,many=True)
         return Response(serializer.data)
 
 
-@api_view(['PUT'])
-def api_update_health_view(request,slug):
+@api_view(['GET'])
+def healthDetial(request,pk):
+    try:
+        # health=Health.objects.get(slug=slug)
+         health=Health.objects.get(id=pk)   
+    
+    except Health.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    if request.method=="GET":
+        serializer=HealthSerializer(health,many=False)
+        return Response(serializer.data)
+ 
+
+
+
+# Update
+@api_view(['POST'])
+def healthUpdate(request,pk):
 
     try:
-        health =Health.objects.get(slug=slug)
+        health =Health.objects.get(id=pk)
     
     except Health.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method=="PUT":
-        serializer=HealthSerializer(health,data=request.data)
+    if request.method=="POST":
+        serializer=HealthSerializer(instance=health,data=request.data)
         data={}
 
         if serializer.is_valid():
@@ -43,10 +76,10 @@ def api_update_health_view(request,slug):
 
 
 @api_view(['DELETE'])
-def api_delete_health_view(request,slug):
+def healthDelete(request,pk):
 
     try:
-        health =Health.objects.get(slug=slug)
+        health =Health.objects.get(id=pk)
     
     except Health.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -63,15 +96,14 @@ def api_delete_health_view(request,slug):
 
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
+ 
 
-
+# Create
 @api_view(['POST'])
-def api_post_health_view(request):
-
-    health=Health.objects.get(pk=1)
+def healthCreate(request):
 
     if request.method=='POST':
-        serializer=HealthSerializer(health,data=request.data)
+        serializer=HealthSerializer(data=request.data)
         data={}
 
         if serializer.is_valid():

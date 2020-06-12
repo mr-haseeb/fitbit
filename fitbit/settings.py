@@ -33,14 +33,15 @@ ALLOWED_HOSTS = ['fitbitt.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'dashborad.apps.DashboradConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'rest_framework',
+    'rest_framework',
+    'dashborad.apps.DashboradConfig',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -86,27 +87,38 @@ WSGI_APPLICATION = 'fitbit.wsgi.application'
 #     }
 # }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fitbit',
+        'USER':'root',
+        'PASSWORD':'9090',
+        'HOST':'localhost'
+
+    }
+}
+
 
 
 
 
 # Local Postgres
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fitbit',
-        'USER':'postgres',
-        'PASSWORD':'1023',
-        'HOST':'localhost'
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'fitbit',
+#         'USER':'postgres',
+#         'PASSWORD':'1023',
+#         'HOST':'localhost'
         
 
-    }
-}
+#     }
+# }
 
 # Mlab
 
-# DATABASES = {{
+# DATABASES = {
 #     'default': {
 #         'NAME': 'fitbitt',
 #         'AUTH_SOURCE': 'django-linecms-demo',
@@ -116,7 +128,7 @@ DATABASES = {
 #         'PORT': <port>,
 #         'ENGINE': 'djongo'
 #     }
-# }}
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

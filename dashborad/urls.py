@@ -1,7 +1,7 @@
 from django.urls import path,include
 from .views import MainPageView,ChartsData,ChartsPageView
 
-include
+
 urlpatterns = [
 
     path('',MainPageView.as_view(),name='dashborad-main'),
@@ -10,6 +10,6 @@ urlpatterns = [
 
     # REST FRAMEWORK URLS
 
-    path('api/health',include)
+    path('api/',include('dashborad.api.urls')),
 
 ]

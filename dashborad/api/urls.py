@@ -1,19 +1,16 @@
-from dashborad.api.views import 
-(
-api_detail_health_view,
-api_update_health_view,
-api_delete_health_view,
-api_post_health_view
-)
+from dashborad.api.views import (apiOverview, healthList,healthDetial,
+healthCreate,healthUpdate,healthDelete)
 
 from django.urls import path
 
 
 urlpatterns=[
-    path('<slug>/',api_detail_health_view,name='detail'),
-    path('<slug>/update',api_update_health_view,name='update'),
-    path('<slug>/delete',api_delete_health_view,name='delete'),
-    path('create',api_post_health_view,name='create'),
+    path('',apiOverview,name='api-overview'),
+    path('health-list/',healthList,name='health-list'),
+    path('health-detail/<str:pk>/',healthDetial,name='health-detail'),
+    path('health-create/',healthCreate,name='health-create'),
+    path('health-update/<str:pk>/',healthUpdate,name='health-update'),
+    path('health-delete/<str:pk>/',healthDelete,name='health-Delete'),
 
 ]
 

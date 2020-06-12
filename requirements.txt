@@ -5,3 +5,5 @@ numpy==1.18.4
 gunicorn
 django-heroku
 djongo
+mysqlclient
+django-extensions
